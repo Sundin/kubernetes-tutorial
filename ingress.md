@@ -39,7 +39,7 @@ Or:
 
     curl -X GET "http://localhost:80/WeatherForecast" -H  "accept: text/plain"
 
-If you have any problems, you might need to look in to the logs from the NGINX ingress controller pod itself. It runs in a different _Kubernetes namespace_ so you have to use the `-n` flag like this:
+If you have any problems, you might need to look in to the logs from the NGINX ingress controller pod itself. It runs in a different _Kubernetes namespace_ (list all namespaces with `kubectl get namespaces`) so you have to use the `-n` flag like this:
 
     stern -n ingress-nginx "ingress-nginx-.*"
 
