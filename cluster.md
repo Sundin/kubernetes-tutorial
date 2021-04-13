@@ -36,7 +36,7 @@ Verify that everything worked OK.
     kubectl cluster-info
     flux check --pre
 
-You now have a fully functional Kubernetes cluster running on your computer! Continue to [chapter 3](./pod.md) to add your first pod to the cluster.
+You now have a fully functional Kubernetes cluster running on your computer! Continue to [**chapter 3**](./pod.md) to add your first pod to the cluster.
 
 ## Advanced
 

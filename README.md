@@ -4,7 +4,9 @@ This is a guide for getting started with Kubernetes! During the tutorial, we wil
 
 The guide is written with MacOS in mind. Most of the commands should be easily transposable to other operating systems as well though.
 
-- [Chapter 1: Core concepts](./introduction.md): If you are totally new to Kubernetes, the introduction will gently introduce you to some of the core concepts.
-- [Chapter 2: Create your Kubernetes cluster](./cluster.md): In this chapter we will use [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create a Kubernetes cluster running locally on your computer.
-- [Chapter 3: Deploy your first pod](./pod.md): Using [Flux](https://toolkit.fluxcd.io/get-started/), we will inject a pod into the cluster.
-- [Chapter 4: Add an ingress to the pod](./ingress.md): In the final chapter, we will set up NGINX in order to route traffic properly into the cluster.
+- [Chapter 1: **Core concepts**](./introduction.md): If you are totally new to Kubernetes, the introduction will gently introduce you to some of the core concepts.
+- [Chapter 2: **Create your own Kubernetes cluster**](./cluster.md): In this chapter we will use [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create a Kubernetes cluster running locally on your computer.
+- [Chapter 3: **Deploy your first pod**](./pod.md): Using [Flux](https://toolkit.fluxcd.io/get-started/), we will inject a pod into the cluster.
+- [Chapter 4: **Add an ingress to the pod**](./ingress.md): In the final chapter, we will set up NGINX in order to route traffic properly into the cluster.
+
+If you spot any errors, have questions, or want to give feedback, feel free to open an issue or create a pull request! Happy coding!
