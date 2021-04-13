@@ -2,7 +2,7 @@
 
 By using the port-forward solution described at the end of [chapter 3](./pod.md), we will only get direct access to one of the two pods. A more robust solution is to use an Ingress, but this will require some more work. Step one is to set up a brand new cluster with an Ingress Controller installed.
 
-### Recreate cluster
+## Recreate cluster
 
 Delete the existing cluster:
 
@@ -16,7 +16,7 @@ Add an NGINX Ingress Controller to the cluster:
 
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
 
-### Synch Flux to new cluster
+## Synch Flux to new cluster
 
 Tell Flux to start synching to your new cluster instead. Tthis is the same as the initial bootstrapping command we used in [chapter 3](./pod.md), but without creating a new repository. If you prefer, you can instead create a new Flux repository instead by using the `bootstrap` command described in [chapter 3](./pod.md).
 
@@ -39,7 +39,7 @@ Or:
 
     curl -X GET "http://localhost:80/WeatherForecast" -H  "accept: text/plain"
 
-### How it works
+## How it works
 
 In the `kustomize` folder of the weather-api repo, there's a file called `ingress.yaml` with the following content:
 

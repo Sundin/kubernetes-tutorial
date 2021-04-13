@@ -73,6 +73,8 @@ Or use `curl` to play around with the API itself:
 
     curl -X GET "http://localhost:8080/WeatherForecast" -H  "accept: text/plain"
 
+In [chapter 4](./ingress.md) we will have a look at a more robust solution to access your service from the outside world.
+
 ## Advanced
 
 If a Kubernetes manifest is removed from the weather-api repository, Flux will remove it from your cluster. If you delete a Kustomization from the kubernetes-tutorial repository, Flux will remove all Kubernetes objects that were previously applied from that Kustomization.
