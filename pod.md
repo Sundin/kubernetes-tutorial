@@ -1,8 +1,10 @@
 # Chapter 3: Launching your first pod
 
+Now we are ready to deploy our first pod to the cluster. For demonstration purposes, we will sue a very simple [weather-api](https://github.com/Sundin/weather-api) pod. To make things a little bit more interesting, we will use [Flux](https://toolkit.fluxcd.io/) to make sure the pod running in our cluster is automatically always kept up to date with the latest code in the [weather-api git repo](https://github.com/Sundin/weather-api). If you prefer to, you can fork the weather-api to be able to make changes on your own.
+
 ## Create Flux repo
 
-Run the following command to create a repository that will contain the configuration for your Kubernetes cluster:
+Run the following command to create a repository that will contain the Flux configuration for your Kubernetes cluster:
 
     flux bootstrap github \
         --owner=$GITHUB_USER \
@@ -17,7 +19,7 @@ Clone the repo the newly created repository.
 
 ## Deploy pod
 
-We will now deploy a pod called [weather-api](https://github.com/Sundin/weather-api), which is a tiny sample web application made with .NET Core 5.0, to our cluster. In order to do this, we will create a _GitRepository manifest_ (a file that defines that we will use a git repository as source for our pod) pointing to the weather-api repository's master branch. Other example of source types than git are [Helm](https://helm.sh/) repositories or file buckets.
+We will now deploy a pod called [weather-api](https://github.com/Sundin/weather-api), which is a tiny sample web application made with .NET Core 5.0, to our cluster. In order to do this, we will create a _GitRepository manifest_ (a file that defines that we will use a git repository as source for our pod) pointing to the weather-api repository's master branch. Other example of source types than git are [Helm](https://helm.sh/) repositories or file buckets. If you have forked the weather-api repo, remember to update the Git URL in the command below.
 
     flux create source git weather-api \
         --url=https://github.com/Sundin/weather-api \
@@ -79,6 +81,6 @@ In [chapter 4](./ingress.md) we will have a look at a more robust solution to ac
 
 If a Kubernetes manifest is removed from the weather-api repository, Flux will remove it from your cluster. If you delete a Kustomization from the kubernetes-tutorial repository, Flux will remove all Kubernetes objects that were previously applied from that Kustomization.
 
-If you alter the weather-api deployment using `kubectl edit`, the changes will be reverted to match the state described in Git. When dealing with an incident, you can pause the reconciliation of a kustomization with `flux suspend kustomization <name>`. Once the debugging session is over, you can re-enable the reconciliation with `flux resume kustomization <name>`.
+If you alter the weather-api deployment directly using `kubectl edit`, the changes will be reverted to match the state described in Git. When dealing with an incident, you can pause the reconciliation of a kustomization with `flux suspend kustomization <name>`. Once the debugging session is over, you can re-enable the reconciliation with `flux resume kustomization <name>`.
 
-Since Kind eats up quite some CPU resources, it might make sense in pausing it when you don't need it. To pause the cluster, first run `docker ps` to get the container ID of your cluster. Then run `docker pause <containerId>`. To resume, run `docker unpause <containerId>` (who came up with that command name?!).
+Since Kind eats up quite some CPU resources, it might make sense in pausing it when you don't need it. To pause the cluster, first run `docker ps` to get the container ID of your cluster. Then run `docker pause <containerId>`. To resume it, run `docker unpause <containerId>` (who came up with that command name?!).
