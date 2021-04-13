@@ -1,6 +1,6 @@
 # Chapter 4: Add an ingress to your pod
 
-By using the port-forward solution described at the end of [chapter 3](./pod.md), we will only get direct access to one of the two pods. A more robust solution is to use an Ingress, but this will require some more work. Step one is to set up a brand new cluster with an Ingress Controller installed.
+By using the port-forward solution described at the end of [chapter 3](./pod.md), we will only get direct access to one of the two pods. A more robust solution is to use an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) in front of our service, but this will require some more work. Step one is to set up a brand new cluster with an [Ingress Controller] installed.
 
 ## Recreate cluster
 
@@ -12,13 +12,13 @@ Create a kind cluster with `extraPortMappings` to allow the local host to make r
 
     kind create cluster --config=kind/cluster-config.yaml
 
-Add an NGINX Ingress Controller to the cluster:
+Add an [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) to the cluster:
 
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
 
 ## Synch Flux to new cluster
 
-Tell Flux to start synching to your new cluster instead. Tthis is the same as the initial bootstrapping command we used in [chapter 3](./pod.md), but without creating a new repository. If you prefer, you can instead create a new Flux repository instead by using the `bootstrap` command described in [chapter 3](./pod.md).
+Tell Flux to start synching to your new cluster instead. This is the same as the initial bootstrapping command we used in [chapter 3](./pod.md), but without creating a new repository. If you prefer, you can instead create a new Flux repository instead by using the `bootstrap` command described in [chapter 3](./pod.md).
 
     flux install
 
@@ -33,11 +33,15 @@ Tell Flux to start synching to your new cluster instead. Tthis is the same as th
         --prune=true \
         --interval=10m
 
-After Flux have successfully synched the changes yo your cluster, your service is now available at http://localhost:80/swagger/index.html.
+After Flux have successfully reconciliated (synched) the changes yo your cluster, your service is now available at http://localhost:80/swagger/index.html.
 
 Or:
 
     curl -X GET "http://localhost:80/WeatherForecast" -H  "accept: text/plain"
+
+If you have any problems, you might need to look in to the logs from the NGINX ingress controller pod itself. It runs in a different _Kubernetes namespace_ so you have to use the `-n` flag like this:
+
+    stern -n ingress-nginx "ingress-nginx-.*"
 
 ## How it works
 

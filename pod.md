@@ -17,6 +17,8 @@ Clone the newly created repository.
 
     git clone git@github.com:$GITHUB_USER/kubernetes-tutorial.git
 
+    cd kubernetes-tutorial
+
 ## Deploy pod
 
 We will now deploy a pod called [weather-api](https://github.com/Sundin/weather-api), which is a tiny sample web application made with .NET Core 5.0, to our cluster. In order to do this, we will create a _GitRepository manifest_ (a file that defines that we will use a git repository as source for our pod) pointing to the weather-api repository's master branch. Other example of source types than git are [Helm](https://helm.sh/) repositories or file buckets. If you have forked the weather-api repo, remember to update the Git URL in the command below.
