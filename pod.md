@@ -13,7 +13,7 @@ Run the following command to create a repository that will contain the Flux conf
         --path=./clusters/my-cluster \
         --personal
 
-Clone the repo the newly created repository.
+Clone the newly created repository.
 
     git clone git@github.com:$GITHUB_USER/kubernetes-tutorial.git
 
