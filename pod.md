@@ -29,7 +29,7 @@ We will now deploy a pod called [weather-api](https://github.com/Sundin/weather-
         --interval=30s \
         --export > ./clusters/my-cluster/weather-api-source.yaml
 
-We will also create a _Flux Kustomization manifest_ for the weather-api pod. The Kustomization API defines a pipeline for fetching, decrypting, building, validating and applying Kubernetes manifests, so this will configure Flux to build and apply the [kustomize directory](https://github.com/Sundin/weather-api/tree/master/kustomize) located in the weather-api repository.
+We will also create a _Flux Kustomization manifest_ for the weather-api pod. [Kustomize](https://kustomize.io/) is a tool for defining, fetching, building and applying Kubernetes manifests. So the following command will configure Flux to build and apply the [kustomize directory](https://github.com/Sundin/weather-api/tree/master/kustomize) located in the weather-api repository.
 
     flux create kustomization weather-api \
         --source=weather-api \
@@ -40,6 +40,10 @@ We will also create a _Flux Kustomization manifest_ for the weather-api pod. The
         --export > ./clusters/my-cluster/weather-api-kustomization.yaml
 
 Commit and push the changes.
+
+    git add clusters/my-cluster
+    git commit -m 'Add manifests for weather-api pod'
+    git push
 
 Watch Flux sync the application (this process is technically known as _[reconciliation](https://toolkit.fluxcd.io/core-concepts/#reconciliation)_):
 
