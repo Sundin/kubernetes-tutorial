@@ -11,4 +11,4 @@ This is a very high-level description of the most important concepts of Kubernet
 This diagram outlines the difference between most of these core components:
 ![Overview](./kubernetes.png)
 
-Continue to [**chapter 2**](./tutorial/cluster.md) in order to set up your first Kubernetes cluster!
+Continue to [**chapter 2**](./cluster.md) in order to set up your first Kubernetes cluster!

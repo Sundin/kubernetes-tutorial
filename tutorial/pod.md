@@ -81,7 +81,7 @@ Or use `curl` to play around with the API itself:
 
     curl -X GET "http://localhost:8080/WeatherForecast" -H  "accept: text/plain"
 
-In [**chapter 4**](./tutorial/ingress.md) we will have a look at a more robust solution to access your service from the outside world.
+In [**chapter 4**](./ingress.md) we will have a look at a more robust solution to access your service from the outside world.
 
 ## Advanced
 

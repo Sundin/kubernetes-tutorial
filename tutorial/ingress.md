@@ -1,6 +1,6 @@
 # Chapter 4: Add an ingress to your pod
 
-By using the port-forward solution described at the end of [chapter 3](./tutorial/pod.md), we will only get direct access to one of the two pods. A more robust solution is to use an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) in front of our service, but this will require some more work. Step one is to set up a brand new cluster with an [Ingress Controller] installed.
+By using the port-forward solution described at the end of [chapter 3](./pod.md), we will only get direct access to one of the two pods. A more robust solution is to use an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) in front of our service, but this will require some more work. Step one is to set up a brand new cluster with an [Ingress Controller] installed.
 
 ## Recreate cluster
 
