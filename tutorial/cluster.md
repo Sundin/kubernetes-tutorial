@@ -4,7 +4,7 @@ In this chapter you will launch your own Kubernets cluster, locally on your own 
 
 ## Prerequisites
 
-First we will install some tools. [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) is the Kubernetes CLI tool, [kind](https://kind.sigs.k8s.io/) is used for running a Kubernetes cluster locally on your own computer, and [Flux](https://toolkit.fluxcd.io/) is a tool for running [GitOps](https://www.gitops.tech/#what-is-gitops) – deploying changes to your cluster by making changes to a git repo.
+First we will install some tools. [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) is the Kubernetes CLI tool, [kind](https://kind.sigs.k8s.io/) is used for running a Kubernetes cluster locally on your own computer, and [Flux](https://toolkit.fluxcd.io/) is a tool for running [GitOps](https://www.gitops.tech/#what-is-gitops) – deploying changes to your cluster by making changes to a git repo. You will also need to have [Docker](https://docs.docker.com/docker-for-mac/install/) installed, since kind will run your Kubernetes cluster inside a Docker container (kind = **K**ubernetes **in** **D**ocker).
 
     brew update
     brew install kind
